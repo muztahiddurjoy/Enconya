@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/edittextbg.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/glassadapter.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/layout/chatlist_adapter.xml" value="0.1" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/aurorabg.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/btnnew.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/buttonback.xml" value="0.15555555555555556" />

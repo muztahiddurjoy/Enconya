@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         chatListAdapter = new ChatListAdapter(arrayList,keys,MainActivity.this);
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
         noticebtn = binding.noticebtn;
         binding.actionbarMain.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 keys.clear();
                 for(DataSnapshot ds: snapshot.getChildren()) {
                     String ashole= ds.getValue(String.class);
+                    FirebaseMessaging.getInstance().subscribeToTopic(ashole);
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("chats").child(ashole);
                     reference.addValueEventListener(new ValueEventListener() {
                         @Override
