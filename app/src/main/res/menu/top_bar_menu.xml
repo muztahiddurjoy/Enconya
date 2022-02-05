@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/user_menu"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_user"
+        android:iconTint="@color/purple_500"
+        android:title="User"/>
+    <item android:id="@+id/tv_menu"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_tv"
+        android:iconTint="@color/purple_500"
+        android:title="Show AD"/>
+    <item
+        android:id="@+id/add_menu"
+        app:showAsAction="always"
+        android:iconTint="@color/purple_500"
+        android:title="Add"
+        android:icon="@drawable/ic_plus_circle"/>
+
+</menu>

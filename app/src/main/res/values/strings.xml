@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Enconiya</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="open_noticeboard">open noticeboard</string>
+    <string name="logout">Logout</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="notice_board">Notice Board</string>
+    <string name="watch_ad">Watch Ad</string>
+</resources>
