@@ -16,7 +16,6 @@ ActivityChatBinding binding;
         setContentView(binding.getRoot());
         Intent intent = getIntent();
         String asholkey = intent.getStringExtra("asholkey");
-        binding.textView2.setText(asholkey);
 
     }
 }

@@ -98,8 +98,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="1"
+                android:id="@+id/main_screen_btn"
                 android:background="@drawable/btnnew"
-                android:text="@string/watch_ad"
+                android:text="@string/main_screen"
                 android:textColor="@color/purple_200" />
         </LinearLayout>
 

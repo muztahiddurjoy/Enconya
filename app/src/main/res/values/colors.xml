@@ -17,6 +17,6 @@
     <color name="white20">#33FFFFFF</color>
     <color name="white10">#1AFFFFFF</color>
     <color name="white5">#0DFFFFFF</color>
-
+    <color name="customerror">#FF6161</color>
     <color name="transparent">#00000000</color>
 </resources>

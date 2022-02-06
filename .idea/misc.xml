@@ -3,9 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/edittextbg.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/glassadapter.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/layout/chatlist_adapter.xml" value="0.1" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/aurorabg.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/btnnew.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/buttonback.xml" value="0.15555555555555556" />
@@ -33,8 +30,10 @@
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_profile.xml" value="0.22307157748436415" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/addtochatlistdialog.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/chatlist_adapter.xml" value="0.4505672609400324" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/splashscreen.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/successdialog.xml" value="0.33" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/upload_dialog_layout.xml" value="0.33" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/menu/top_bar_menu.xml" value="0.20416666666666666" />
       </map>

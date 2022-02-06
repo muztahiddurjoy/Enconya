@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,7 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
-Button notice, watchad, logout;
+Button notice, mainscreen, logout;
 TextView username,mail;
 ImageView profimg;
 DatabaseReference reference;
@@ -59,6 +60,7 @@ FloatingActionButton cardView;
         logout = findViewById(R.id.logout_btn);
         chipGroup = findViewById(R.id.chipGroup);
         cardView = findViewById(R.id.edit_profile_img);
+        mainscreen = findViewById(R.id.main_screen_btn);
         storage = FirebaseStorage.getInstance().getReference().child("users");
         reference = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         reference.addValueEventListener(new ValueEventListener() {
@@ -68,13 +70,15 @@ FloatingActionButton cardView;
                 ProfileDataset dataset = snapshot.getValue(ProfileDataset.class);
                 username.setText(dataset.getName());
                 mail.setText(dataset.getEmail());
-                ArrayList<String> roles = (ArrayList<String>) dataset.getRoles();
-                for (int i = 0; i < roles.size(); i++) {
-                    Chip chip = new Chip(ProfileActivity.this);
-                    chip.setText(roles.get(i));
-                    chip.setChipBackgroundColorResource(R.color.purple_700);
-                    chip.setTextColor(getResources().getColor(R.color.white));
-                    chipGroup.addView(chip);
+                if (dataset.getRoles() !=null) {
+                    ArrayList<String> roles = (ArrayList<String>) dataset.getRoles();
+                    for (int i = 0; i < roles.size(); i++) {
+                        Chip chip = new Chip(ProfileActivity.this);
+                        chip.setText(roles.get(i));
+                        chip.setChipBackgroundColorResource(R.color.purple_700);
+                        chip.setTextColor(getResources().getColor(R.color.white));
+                        chipGroup.addView(chip);
+                    }
                 }
                 Glide.with(ProfileActivity.this).load(dataset.getImg()).into(profimg);
             }
@@ -99,6 +103,12 @@ FloatingActionButton cardView;
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(getApplicationContext(), "Logged Out!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+            }
+        });
+        mainscreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this,MainActivity.class));
             }
         });
     }
@@ -146,5 +156,16 @@ FloatingActionButton cardView;
             }
         });
         dialog.show();
+    }
+
+    @Override
+    public void onPanelClosed(int featureId, @NonNull Menu menu) {
+        super.onPanelClosed(featureId, menu);
+        Toast.makeText(ProfileActivity.this, "Closed!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ProfileActivity.this,MainActivity.class));
     }
 }

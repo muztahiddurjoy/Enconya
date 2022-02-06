@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/adddiacontainer"
+    android:padding="30sp"
+    android:background="@color/transparent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialogback"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="350sp"
+            android:layout_height="wrap_content"
+            android:text="Add ChatGroup"
+            android:textSize="20sp"
+            android:layout_marginTop="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/gilroyextrabold"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/white"
+            android:id="@+id/textlay_secretcode"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white60"
+            app:errorTextColor="@color/customerror"
+            app:errorIconTint="@color/customerror"
+            app:boxStrokeErrorColor="@color/customerror"
+            android:layout_margin="20sp"
+            app:boxStrokeColor="@color/white"
+            android:hint="Group Code">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textCursorDrawable="@color/white"
+                android:fontFamily="@font/glorymedium"
+                android:inputType="textPassword"
+                android:id="@+id/chat_code"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_code"
+                android:text="Enter Code"
+                android:background="@drawable/btnnew"
+                android:paddingHorizontal="50sp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:background="@color/transparent"
+            android:textColor="@color/white"
+            android:id="@+id/close_addchatbtn"
+            android:text="Close"/>
+    </LinearLayout>
+</LinearLayout>

@@ -6,11 +6,6 @@
         android:icon="@drawable/ic_user"
         android:iconTint="@color/purple_500"
         android:title="User"/>
-    <item android:id="@+id/tv_menu"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_tv"
-        android:iconTint="@color/purple_500"
-        android:title="Show AD"/>
     <item
         android:id="@+id/add_menu"
         app:showAsAction="always"
