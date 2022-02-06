@@ -196,6 +196,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(chatListAdapter);
+        noticebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,NoticeActivity.class));
+            }
+        });
 //        signout = findViewById(R.id.signout);
 //        signout.setOnClickListener((v)->{
 //            FirebaseAuth.getInstance().signOut();

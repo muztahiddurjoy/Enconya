@@ -22,6 +22,13 @@ public class SplashScreen extends Activity {
         videoView = (VideoView) findViewById(R.id.videoView);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.nee));
         videoView.start();
+        videoView.setSoundEffectsEnabled(false);
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setVolume(0f,0f);
+            }
+        });
         videoView.setMediaController(null);
         auth = FirebaseAuth.getInstance();
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

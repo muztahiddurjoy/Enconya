@@ -88,6 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
+                android:id="@+id/notice_btn_profile"
                 android:layout_weight="1"
                 android:background="@drawable/btnnew"
                 android:text="@string/notice_board"

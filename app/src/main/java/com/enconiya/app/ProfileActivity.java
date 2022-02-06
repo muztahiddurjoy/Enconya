@@ -10,10 +10,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +63,7 @@ FloatingActionButton cardView;
         chipGroup = findViewById(R.id.chipGroup);
         cardView = findViewById(R.id.edit_profile_img);
         mainscreen = findViewById(R.id.main_screen_btn);
+        notice = findViewById(R.id.notice_btn_profile);
         storage = FirebaseStorage.getInstance().getReference().child("users");
         reference = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         reference.addValueEventListener(new ValueEventListener() {
@@ -111,6 +114,12 @@ FloatingActionButton cardView;
                 startActivity(new Intent(ProfileActivity.this,MainActivity.class));
             }
         });
+        notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this,NoticeActivity.class));
+            }
+        });
     }
 
     @Override
@@ -122,9 +131,10 @@ FloatingActionButton cardView;
     }
 
     private void showuploadDialog(Uri data) {
-        LinearProgressIndicator indicator;
         Dialog dialog = new Dialog(ProfileActivity.this);
-        dialog.setContentView(R.layout.upload_dialog_layout);
+        View root = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.upload_dialog_layout,(LinearLayout) findViewById(R.id.upload_container));
+        dialog.setContentView(root);
+        LinearProgressIndicator indicator = root.findViewById(R.id.progress_upload_img);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         storage.putFile(data).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -143,7 +153,7 @@ FloatingActionButton cardView;
                 reference.updateChildren(imgmap, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-//                        Toast.makeText(ProfileActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
 
                     }
