@@ -28,6 +28,7 @@ import com.enconiya.app.Datasets.ChatListAddDataset;
 import com.enconiya.app.Datasets.ChatListDatasetOur;
 import com.enconiya.app.Datasets.UserDataset;
 import com.enconiya.app.databinding.ActivityMainBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     ChatListAdapter chatListAdapter;
     DatabaseReference referenceChats;
+    ArrayList<String> chatlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList = new ArrayList<>();
         recyclerView = binding.recyclerChatlist;
         recyclerView.setHasFixedSize(true);
+        chatlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         chatListAdapter = new ChatListAdapter(arrayList,keys,MainActivity.this);
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
@@ -113,6 +116,21 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
+                //Dialog Two
+                Dialog successdia = new Dialog(MainActivity.this);
+                View rootsucc = LayoutInflater.from(MainActivity.this).inflate(R.layout.successdialog,(LinearLayout) findViewById(R.id.alertdialog_container));
+                successdia.setContentView(rootsucc);
+                TextView title = rootsucc.findViewById(R.id.alert_title);
+                TextView message = rootsucc.findViewById(R.id.body_text_alerr_dialog);
+                successdia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                rootsucc.findViewById(R.id.btn_success_alert_dialog).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        successdia.dismiss();
+                    }
+                });
+                //Dialog Two Ends
                 donebtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -125,28 +143,25 @@ public class MainActivity extends AppCompatActivity {
                                 for(DataSnapshot ds: snapshot.getChildren()) {
                                     ChatListAddDataset dataset = ds.getValue(ChatListAddDataset.class);
                                     if (dataset.getSecretkey().equals(typedcode)) {
-                                        reference.child("chatlist").push().setValue(dataset.getMainkey());
                                         status = true;
+                                        if(!chatlist.contains(dataset.getMainkey())){
+                                            reference.child("chatlist").push().setValue(dataset.getMainkey()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    title.setText("Success!");
+                                                    message.setText("Now you are a member of the Chat Group. The Group Has been added to your chatlist");
+                                                }
+                                            });
+                                        }
+                                        else {
+                                            title.setText("Failed!");
+                                            message.setText("You are already a member of the Chat Group");
+                                        }
                                     }
                                 }
                                 if(status){
                                     dialog.dismiss();
-                                    Dialog successdia = new Dialog(MainActivity.this);
-                                    View rootsucc = LayoutInflater.from(MainActivity.this).inflate(R.layout.successdialog,(LinearLayout) findViewById(R.id.alertdialog_container));
-                                    successdia.setContentView(rootsucc);
-                                    TextView title = rootsucc.findViewById(R.id.alert_title);
-                                    TextView message = rootsucc.findViewById(R.id.body_text_alerr_dialog);
-                                    successdia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                                    title.setText("Success!");
-                                    message.setText("Now you are a member of the Chat Group. The Group Has been added to your chatlist");
                                     successdia.show();
-                                    rootsucc.findViewById(R.id.btn_success_alert_dialog).setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            successdia.dismiss();
-                                        }
-                                    });
                                 }
                                 else {
                                     layout.setError("Wrong Group Code!");
@@ -167,8 +182,10 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 keys.clear();
+                chatlist.clear();
                 for(DataSnapshot ds: snapshot.getChildren()) {
                     String ashole= ds.getValue(String.class);
+                    chatlist.add(ashole);
                     FirebaseMessaging.getInstance().subscribeToTopic(ashole);
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("chats").child(ashole);
                     reference.addValueEventListener(new ValueEventListener() {
