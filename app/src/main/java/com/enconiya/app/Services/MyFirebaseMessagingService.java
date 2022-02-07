@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.widget.RemoteViews;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -43,6 +44,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         data = remoteMessage.getData();
         String title = data.get("title");
         String content = data.get("content");
+        String type = data.get("type");
+        RemoteViews collapsed = new RemoteViews(getPackageName(),R.layout.collapsed_notification);
+        collapsed.setTextViewText(R.id.notification_title_custom,title);
+        collapsed.setTextViewText(R.id.notification_main_column, content);
         Intent notifyIntent = new Intent(this, SplashScreen.class);
         notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -59,7 +64,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             channel.setDescription("Notification from Enconiya");
             channel.enableLights(true);
             channel.setLightColor(Color.RED);
-            channel.setVibrationPattern(new long[]{0,1000,0,1000});
+            channel.setVibrationPattern(new long[]{0,5000,0,5000});
             channel.enableVibration(true);
             manager.createNotificationChannel(channel);
         }
@@ -70,7 +75,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setSmallIcon(R.drawable.ic_plus_circle)
                 .setTicker("Enconiya")
                 .setContentTitle(title)
-                .setContentText(content)
+                .setContentText(type)
+                .setCustomContentView(collapsed)
                 .setContentIntent(notifyPendingIntent)
                 .setContentInfo("Enconiya");
         manager.notify(new Random().nextInt(1000),builder.build());

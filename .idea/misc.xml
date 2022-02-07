@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/dialogback.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/drawable/notification_background.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/layout/activity_chat.xml" value="0.1578125" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/Enconya/app/src/main/res/layout/collapsed_notification.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/aurorabg.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/btnnew.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/enconiya-main/app/src/main/res/drawable/buttonback.xml" value="0.15555555555555556" />
