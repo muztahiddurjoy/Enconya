@@ -25,19 +25,23 @@
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/bgcommonour.xml" value="0.2046875" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/btnnew.xml" value="0.2203125" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/buttonback.xml" value="0.2203125" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/chatbg.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/dialogback.xml" value="0.2046875" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/edittextbg.xml" value="0.2203125" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/ic_back_aurora.xml" value="0.2203125" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/ic_welcome_to_enconiya.xml" value="9.0" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/drawable/login_scree.xml" value="0.20462962962962963" />
-        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_chat.xml" value="0.19655797101449277" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_chat.xml" value="0.343015214384509" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_notice.xml" value="0.18125" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_pinned_messages.xml" value="0.1421875" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/activity_profile.xml" value="0.22307157748436415" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/addtochatlistdialog.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/chat_text_adapter.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/chatlist_adapter.xml" value="0.4505672609400324" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/notice_adapter.xml" value="0.33" />
+        <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/own_chat_text_adapter.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/splashscreen.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/successdialog.xml" value="0.33" />
         <entry key="..\:/Users/Muhtasim Kopot/AndroidStudioProjects/Enconiya/app/src/main/res/layout/upload_dialog_layout.xml" value="0.33" />

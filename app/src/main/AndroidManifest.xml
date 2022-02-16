@@ -34,13 +34,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Enconiya">
         <activity
+            android:name=".Pinned_Messages"
+            android:exported="false" />
+        <activity
             android:name=".NoticeActivity"
             android:exported="false"
-            android:theme="@style/NoSplash"/>
+            android:theme="@style/NoSplash" />
         <activity
             android:name=".ChatActivity"
             android:exported="false"
-            android:theme="@style/NoSplash" />
+            android:theme="@style/NoSplash"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false"

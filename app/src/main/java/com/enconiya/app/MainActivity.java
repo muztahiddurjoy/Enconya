@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     ChatListAdapter chatListAdapter;
     DatabaseReference referenceChats;
     ArrayList<String> chatlist;
+    ArrayList<String> chatarr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = binding.recyclerChatlist;
         recyclerView.setHasFixedSize(true);
         chatlist = new ArrayList<>();
+        chatarr = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         chatListAdapter = new ChatListAdapter(arrayList,keys,MainActivity.this);
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
@@ -180,22 +183,24 @@ public class MainActivity extends AppCompatActivity {
         reference.child("chatlist").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                chatlist.clear();
                 arrayList.clear();
                 keys.clear();
-                chatlist.clear();
                 for(DataSnapshot ds: snapshot.getChildren()) {
                     String ashole= ds.getValue(String.class);
                     chatlist.add(ashole);
+                    chatarr.clear();
                     FirebaseMessaging.getInstance().subscribeToTopic(ashole);
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("chats").child(ashole);
                     reference.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        public void onDataChange(@NonNull DataSnapshot snapshot){
                             ChatListDatasetOur dataset = snapshot.getValue(ChatListDatasetOur.class);
-                            if(!arrayList.contains(dataset)){
-                                arrayList.add(dataset);
-                                keys.add(snapshot.getKey());
-                            }
+                            if(!chatarr.contains(snapshot.getKey())){
+                                   arrayList.add(dataset);
+                                   keys.add(snapshot.getKey());
+                                   chatarr.add(snapshot.getKey());
+                             }
                             chatListAdapter.notifyDataSetChanged();
                         }
 
